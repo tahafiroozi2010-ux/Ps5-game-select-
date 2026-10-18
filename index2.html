@@ -1,0 +1,318 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>انتخاب بازی PS5</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow:wght@500;600;700&family=Vazirmatn:wght@400;600;800&display=swap">
+<style>
+:root{--bg:#e9edf6;--surface:#fff;--ink:#0d1526;--muted:#5b6578;--line:#d3d9e6;--accent:#1747e6;--accent-ink:#fff;--accent-soft:#e1e9ff;--ok:#0b8a5e;--warn:#b36a00;--bad:#c9302c;--track:#dde3ef;
+--act:#2f6bff;--rpg:#a24bff;--shoot:#ff8a1f;--horror:#e0334f;--sport:#10b981;--fight:#ec4899;--fam:#14b8d4;
+--sans:"Vazirmatn",Tahoma,system-ui,sans-serif;--latin:"Barlow","Vazirmatn",system-ui,sans-serif;color-scheme:light dark}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#070b14;--surface:#101827;--ink:#e8edf7;--muted:#93a0b8;--line:#223049;--accent:#6a96ff;--accent-ink:#071022;--accent-soft:#16254d;--ok:#34d399;--warn:#f5b53d;--bad:#ff7b7b;--track:#1b2740;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#070b14;--surface:#101827;--ink:#e8edf7;--muted:#93a0b8;--line:#223049;--accent:#6a96ff;--accent-ink:#071022;--accent-soft:#16254d;--ok:#34d399;--warn:#f5b53d;--bad:#ff7b7b;--track:#1b2740;color-scheme:dark}
+*{box-sizing:border-box}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.6 var(--sans);-webkit-text-size-adjust:100%}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:#070b14;z-index:30}
+button,input,select{font:inherit;color:inherit}
+.inner{max-width:760px;margin:0 auto;padding-inline:max(16px,env(safe-area-inset-left,0px)) max(16px,env(safe-area-inset-right,0px))}
+/* hero */
+.hero{position:relative;overflow:hidden;color:#fff;background:radial-gradient(120% 90% at 85% 0%,#2d4fff 0%,transparent 55%),radial-gradient(90% 80% at 0% 100%,#a24bff 0%,transparent 55%),#070b14;padding-top:calc(env(safe-area-inset-top,0px) + 34px);padding-bottom:30px}
+.hero::after{content:"";position:absolute;inset:0;background:repeating-linear-gradient(115deg,rgba(255,255,255,.04) 0 1px,transparent 1px 26px);pointer-events:none}
+.sym{position:absolute;width:var(--s);height:var(--s);left:var(--x);top:var(--y);opacity:.22;animation:drift 14s ease-in-out infinite alternate;animation-delay:var(--d)}
+.sym svg{width:100%;height:100%;fill:none;stroke:currentColor;stroke-width:3;stroke-linejoin:round;stroke-linecap:round}
+@keyframes drift{from{transform:translateY(0) rotate(0)}to{transform:translateY(-22px) rotate(25deg)}}
+.hero .inner{position:relative;z-index:2}
+.hero h1{font-size:clamp(30px,8vw,48px);font-weight:800;line-height:1.2;margin:0 0 8px;text-wrap:balance;text-shadow:0 4px 30px rgba(23,71,230,.6)}
+.hero p{margin:0 0 18px;color:#c4cee6;max-width:46ch}
+.stats{display:flex;gap:10px;flex-wrap:wrap}
+.stat{padding:8px 14px;border:1px solid rgba(255,255,255,.2);background:rgba(255,255,255,.08);backdrop-filter:blur(6px);border-radius:12px}
+.stat b{display:block;font:700 22px/1.1 var(--latin);font-variant-numeric:tabular-nums}
+.stat span{font-size:12px;color:#c4cee6}
+/* band */
+.band{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--surface);border-bottom:1px solid var(--line);box-shadow:0 8px 24px -16px rgba(0,0,0,.5)}
+.band .inner{padding-block:10px}
+.g{display:flex;align-items:center;gap:14px}
+.ring{position:relative;width:84px;height:84px;flex:none}
+.ring svg{width:100%;height:100%;transform:rotate(-90deg) scaleY(-1)}
+.ring circle{fill:none;stroke-width:9}
+.ring .bgc{stroke:var(--track)}
+.ring .fg{stroke:var(--accent);stroke-linecap:round;stroke-dasharray:213.6;stroke-dashoffset:213.6;transition:stroke-dashoffset .5s cubic-bezier(.2,.8,.2,1),stroke .2s}
+.ring .fg.warn{stroke:var(--warn)}.ring .fg.bad{stroke:var(--bad)}
+.ring .pc{position:absolute;inset:0;display:grid;place-items:center;font:700 19px var(--latin);font-variant-numeric:tabular-nums}
+.gm{flex:1;min-width:0}
+.lbl{display:block;font-size:12px;color:var(--muted)}
+.rem{font:700 32px/1 var(--latin);font-variant-numeric:tabular-nums}
+.rem small{font-size:13px;font-weight:600;color:var(--muted);margin-inline-start:4px}
+.usedtxt{font-size:12.5px;color:var(--muted)}
+.usedtxt b{font-family:var(--latin);color:var(--ink)}
+.stack{display:flex;height:10px;margin-top:9px;background:var(--track);border-radius:6px;overflow:hidden}
+.stack i{display:block;height:100%;transition:width .4s ease;min-width:0}
+.msg{min-height:20px;font-size:13px;margin-top:5px;color:var(--muted)}
+.msg.warn{color:var(--warn)}.msg.bad{color:var(--bad);font-weight:600}
+.band.shake{animation:shake .35s}
+@keyframes shake{25%{transform:translateX(-5px)}75%{transform:translateX(5px)}}
+.tabs{display:grid;grid-template-columns:1fr 1fr;gap:4px;padding:3px;background:var(--bg);border-radius:10px;margin-top:4px}
+.tab{border:0;background:transparent;padding:7px;border-radius:8px;font-weight:600;font-size:14px;color:var(--muted);cursor:pointer}
+.tab[aria-selected="true"]{background:var(--surface);color:var(--ink);box-shadow:0 0 0 1px var(--line)}
+.tab .n{font-family:var(--latin)}
+/* controls */
+main .inner{padding-block:16px 40px}
+.search{width:100%;padding:12px 14px;border:1px solid var(--line);border-radius:12px;background:var(--surface)}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.chips{display:flex;gap:6px;overflow-x:auto;padding-block:10px 4px;scrollbar-width:none}
+.chips::-webkit-scrollbar{display:none}
+.chip{flex:none;display:flex;align-items:center;gap:6px;border:1px solid var(--line);background:var(--surface);padding:5px 12px;border-radius:999px;font-size:13px;cursor:pointer;white-space:nowrap}
+.chip i{width:9px;height:9px;border-radius:50%;background:var(--c,var(--muted))}
+.chip[aria-pressed="true"]{background:var(--c,var(--accent));border-color:var(--c,var(--accent));color:#fff;font-weight:600}
+.chip[aria-pressed="true"] i{background:#fff}
+.meta{display:flex;justify-content:space-between;align-items:center;margin-block:8px 6px;font-size:13px;color:var(--muted)}
+.sort{border:1px solid var(--line);background:var(--surface);border-radius:8px;padding:4px 8px;font-size:13px}
+/* list */
+ul.list{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:8px}
+.row{position:relative;display:grid;grid-template-columns:58px 1fr auto;align-items:center;gap:12px;padding:8px 10px;background:var(--surface);border:1px solid var(--line);border-radius:14px;cursor:pointer;overflow:hidden;transition:transform .15s,border-color .15s}
+.row:active{transform:scale(.985)}
+.row input{position:absolute;opacity:0;inset:0;width:100%;height:100%;margin:0;cursor:pointer}
+.cover{position:relative;width:58px;height:58px;border-radius:12px;overflow:hidden;display:grid;place-items:center;color:#fff;font:700 20px var(--latin);background:linear-gradient(140deg,hsl(var(--h) 80% 52%),hsl(calc(var(--h) + 45) 75% 22%));box-shadow:inset 0 0 0 1px rgba(255,255,255,.18)}
+.cover svg{position:absolute;width:150%;height:150%;inset:-25%;margin:auto;opacity:.18;fill:none;stroke:#fff;stroke-width:3}
+.cover span{position:relative;text-shadow:0 2px 8px rgba(0,0,0,.5)}
+.cover .ck{position:absolute;inset:0;display:grid;place-items:center;background:rgba(7,11,20,.55);opacity:0;transition:opacity .15s}
+.cover .ck::after{content:"";width:22px;height:11px;border-left:4px solid #fff;border-bottom:4px solid #fff;transform:rotate(-45deg) translate(1px,-3px)}
+.row:has(input:checked){border-color:var(--c);background:linear-gradient(90deg,transparent,var(--accent-soft));box-shadow:0 0 0 1px var(--c),0 8px 22px -12px var(--c)}
+.row:has(input:checked) .ck{opacity:1}
+.row:has(input:focus-visible){outline:2px solid var(--accent);outline-offset:2px}
+.name{min-width:0}
+.name .t{display:block;font:600 16px/1.3 var(--latin);overflow-wrap:anywhere;direction:ltr;text-align:right}
+.name .s{display:flex;flex-wrap:wrap;gap:2px 8px;font-size:12px;color:var(--muted);margin-top:3px}
+.gen{color:var(--c);font-weight:600}
+.tag{color:var(--warn);font-weight:600}.tag.no{color:var(--bad)}
+.sz{text-align:left;direction:ltr;min-width:66px}
+.sz b{display:block;font:700 18px/1.2 var(--latin);font-variant-numeric:tabular-nums}
+.sz span{display:block;font:11px var(--latin);color:var(--muted)}
+.share{height:4px;background:var(--track);border-radius:2px;margin-top:4px;overflow:hidden}
+.share i{display:block;height:100%;background:var(--c);border-radius:2px}
+.row.nofit:not(:has(input:checked)){opacity:.5}
+.empty{padding:28px 16px;text-align:center;color:var(--muted);background:var(--surface);border:1px dashed var(--line);border-radius:14px}
+.actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}
+.btn{border:1px solid var(--line);background:var(--surface);padding:10px 16px;border-radius:12px;font-weight:600;cursor:pointer}
+.btn.primary{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+.notes{margin-top:26px;padding-top:14px;border-top:1px solid var(--line);font-size:12.5px;color:var(--muted);display:flex;flex-direction:column;gap:6px}
+.notes a{color:var(--accent)}
+.notes p{margin:0}
+.hbtns{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin-top:14px}
+.admbtn{border:1px solid rgba(255,255,255,.3);background:rgba(255,255,255,.1);color:#fff;border-radius:999px;padding:6px 14px;font-size:13px;cursor:pointer;backdrop-filter:blur(6px)}
+.cloudst{font-size:12px;color:#c4cee6}
+.modal{position:fixed;inset:0;z-index:50;display:grid;place-items:center;background:rgba(7,11,20,.8);backdrop-filter:blur(8px);padding:max(16px,env(safe-area-inset-top,0px)) 16px max(16px,env(safe-area-inset-bottom,0px))}
+.modal[hidden]{display:none}
+.mcard{width:100%;max-width:420px;max-height:88vh;overflow:auto;background:var(--surface);border:1px solid var(--line);border-radius:20px;padding:22px;box-shadow:0 30px 80px -20px rgba(23,71,230,.6)}
+.mcard h2{margin:0 0 6px;font-size:21px;font-weight:800}
+.mcard p{margin:0 0 14px;color:var(--muted);font-size:14px}
+.mcard .btn{margin-top:10px;width:100%}
+.mcard .btn.ghost{background:transparent}
+.err{color:var(--bad);font-size:13px;margin-top:8px;min-height:18px}
+.pl{border:1px solid var(--line);border-radius:12px;margin-top:8px;background:var(--bg)}
+.pl summary{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:10px 12px;cursor:pointer;list-style:none}
+.pl summary::-webkit-details-marker{display:none}
+.pl .pn{font-weight:700}
+.pl .pm{font:12px var(--latin);color:var(--muted);text-align:left;direction:ltr}
+.pl ul{margin:0;padding:0 12px 12px;list-style:none;font:13px/1.8 var(--latin);direction:ltr}
+.pl li{display:flex;justify-content:space-between;gap:8px;border-top:1px solid var(--line)}
+.pl li span:last-child{color:var(--muted)}
+@media (prefers-reduced-motion:reduce){.sym,.band.shake{animation:none}.ring .fg,.stack i{transition:none}}
+</style>
+</head>
+<body>
+<header class="hero" aria-label="معرفی">
+  <div class="sym" style="--s:70px;--x:6%;--y:18%;--d:0s;color:#6a96ff"><svg viewBox="0 0 40 40"><path d="M20 6 35 33H5z"/></svg></div>
+  <div class="sym" style="--s:54px;--x:78%;--y:12%;--d:-4s;color:#ff6b8a"><svg viewBox="0 0 40 40"><circle cx="20" cy="20" r="14"/></svg></div>
+  <div class="sym" style="--s:60px;--x:88%;--y:62%;--d:-7s;color:#5ee0b0"><svg viewBox="0 0 40 40"><path d="M8 8 32 32M32 8 8 32"/></svg></div>
+  <div class="sym" style="--s:48px;--x:40%;--y:70%;--d:-2s;color:#f5b0ff"><svg viewBox="0 0 40 40"><rect x="7" y="7" width="26" height="26" rx="2"/></svg></div>
+  <div class="inner">
+    <h1>کتابخانه‌ی PS5 خودت را بچین</h1>
+    <p>بازی‌ها را انتخاب کن و ببین ۷۶۰ گیگ حافظه چطور پر می‌شود.</p>
+    <div class="stats"><div class="stat"><b id="hN">0</b><span>بازی در فهرست</span></div><div class="stat"><b id="hT">0</b><span>بازی موجود</span></div><div class="stat"><b>760 GB</b><span>ظرفیت</span></div></div>
+    <div class="hbtns"><button class="admbtn" id="nameBtn"></button><button class="admbtn" id="admOpen">بخش ادمین</button><span class="cloudst" id="cloud"></span></div>
+  </div>
+</header>
+<div class="band" id="band">
+  <div class="inner">
+    <div class="g">
+      <div class="ring"><svg viewBox="0 0 80 80"><circle class="bgc" cx="40" cy="40" r="34"/><circle class="fg" id="fill" cx="40" cy="40" r="34"/></svg><div class="pc"><span id="pc">0%</span></div></div>
+      <div class="gm">
+        <span class="lbl">فضای باقی‌مانده</span>
+        <div class="rem"><span id="rem">760</span><small>GB</small></div>
+        <div class="usedtxt">پر شده <b id="used">0</b> از <b>760</b> GB</div>
+      </div>
+    </div>
+    <div class="stack" id="stack" role="img" aria-label="سهم هر ژانر از حافظه"></div>
+    <div class="msg" id="msg" aria-live="polite"></div>
+    <div class="tabs" role="tablist">
+      <button class="tab" role="tab" id="tab-all" aria-selected="true">همه بازی‌ها</button>
+      <button class="tab" role="tab" id="tab-sel" aria-selected="false">انتخاب‌شده‌ها <span class="n" id="cnt">0</span></button>
+    </div>
+  </div>
+</div>
+<main><div class="inner">
+  <input class="search" id="q" type="search" placeholder="جستجوی نام بازی، مثلا God یا Spider" autocomplete="off" enterkeyhint="search">
+  <div class="chips" id="chips"></div>
+  <div class="meta"><span id="count"></span>
+    <select class="sort" id="sort" aria-label="مرتب‌سازی"><option value="big">حجم: زیاد به کم</option><option value="small">حجم: کم به زیاد</option><option value="name">نام: A تا Z</option></select></div>
+  <ul class="list" id="list"></ul>
+  <div class="actions" id="actions" hidden><button class="btn primary" id="copy">کپی لیست</button><button class="btn" id="clear">پاک کردن همه</button></div>
+  <div class="notes">
+    <p>حجم‌ها از فهرست‌های منتشرشده گرفته شده (<a href="https://outsidergaming.com/playstation-game-install-sizes-reference-guide/" target="_blank" rel="noopener">Outsider Gaming</a>، <a href="https://gamerant.com/ps5-biggest-game-file-sizes-gb/" target="_blank" rel="noopener">GameRant</a>، <a href="https://www.gamesradar.com/ps5-install-sizes/" target="_blank" rel="noopener">GamesRadar</a>، <a href="https://www.notebookcheck.net/Resident-Evil-Requiem-is-largest-game-in-series-as-PS5-file-size-and-pre-load-date-leak.1226855.0.html" target="_blank" rel="noopener">Notebookcheck</a>). با آپدیت و DLC تغییر می‌کنند.</p>
+    <p>بازی‌های علامت‌دار «تقریبی» یا «تخمینی» دقیق نیستند؛ قبل از دانلود حجم را در PlayStation Store ببین. این صفحه حدود ۱۵۰ بازی پرطرفدار دارد، نه همه‌ی عنوان‌های PS5.</p>
+    <p>منابع بخش جدید: <a href="https://insider-gaming.com/" target="_blank" rel="noopener">Insider Gaming</a>، <a href="https://www.pushsquare.com/" target="_blank" rel="noopener">Push Square</a>، <a href="https://www.sportskeeda.com/" target="_blank" rel="noopener">Sportskeeda</a>، <a href="https://www.thegamer.com/" target="_blank" rel="noopener">TheGamer</a>، <a href="https://www.ggrecon.com/" target="_blank" rel="noopener">GGRecon</a>، <a href="https://mp1st.com/" target="_blank" rel="noopener">MP1st</a> و <a href="https://psprices.com/" target="_blank" rel="noopener">PSprices</a>.</p>
+  </div>
+</div></main>
+<div class="modal" id="nameModal" hidden><div class="mcard" role="dialog" aria-labelledby="nmT"><h2 id="nmT">اسمت چیه؟</h2><p>قبل از شروع یک اسم وارد کن تا انتخاب‌هایت ذخیره شود.</p><input class="search" id="nameIn" maxlength="30" placeholder="مثلا علی" autocomplete="nickname" enterkeyhint="done"><button class="btn primary" id="nameOk">ذخیره و ادامه</button></div></div>
+<div class="modal" id="admModal" hidden><div class="mcard" role="dialog" aria-labelledby="amT"><h2 id="amT">بخش ادمین</h2>
+<div id="admLock"><p>کد ادمین را وارد کن.</p><input class="search" id="admCode" type="password" inputmode="numeric" maxlength="8" placeholder="کد" autocomplete="off"><div class="err" id="admErr"></div><button class="btn primary" id="admGo">ورود</button></div>
+<div id="admBody" hidden><p id="admSum"></p><div id="admList"></div></div>
+<button class="btn ghost" id="admClose">بستن</button></div></div>
+<script>
+(function(){
+var CAP=760;
+var G=[["God of War Ragnarök",122.7,"act"],["Horizon Forbidden West",80.28,"act"],["Ghost of Tsushima Director's Cut",40.85,"act"],["Marvel's Spider-Man: Miles Morales",57.76,"act"],["Marvel's Spider-Man GOTY",72.86,"act"],["Marvel's Spider-Man 2",86.3,"act"],["The Last of Us Part II",93.37,"act"],["The Last of Us Remastered",43.92,"act"],["Uncharted 4",62.65,"act"],["Uncharted: Nathan Drake Collection",44.5,"act"],["God of War (2018)",46.75,"act"],["Horizon Zero Dawn Complete",48.19,"act"],["Days Gone",38.62,"act"],["Detroit: Become Human",43.22,"act"],["Death Stranding",49.32,"act"],["Death Stranding Director's Cut",68,"act"],["Red Dead Redemption 2",110.9,"act"],["Grand Theft Auto VI",165,"act","e"],["Assassin's Creed Valhalla",93.55,"rpg"],["Assassin's Creed Shadows",102.61,"act"],["Hitman 3",105.1,"act"],["Control Ultimate Edition",37.48,"act"],["Deathloop",30,"act"],["Immortals Fenyx Rising",46.61,"act"],["Marvel's Guardians of the Galaxy",67.65,"act"],["Marvel's Avengers",46.73,"act"],["Star Wars Jedi: Fallen Order",52.36,"act"],["Watch Dogs: Legion",54.55,"act"],["Devil May Cry 5",37.27,"act"],["Biomutant",11.25,"act"],["Kena: Bridge of Spirits",9.79,"act"],["Ratchet & Clank: Rift Apart",50,"act","a"],["Astro Bot",66,"fam"],["Returnal",56.1,"act"],
+["The Witcher 3 GOTY",52.53,"rpg"],["Cyberpunk 2077",63.89,"rpg"],["Elden Ring",45,"rpg"],["Baldur's Gate 3",108.8,"rpg"],["Hogwarts Legacy",79.8,"rpg"],["Final Fantasy VII Remake",90.43,"rpg"],["Final Fantasy XV",101.2,"rpg"],["Crisis Core: FFVII Reunion",47,"rpg"],["Fallout 4",43.11,"rpg"],["The Outer Worlds",48.39,"rpg"],["Demon's Souls",66,"rpg"],["Dark Souls III",25.27,"rpg"],["Nioh 2",52.97,"rpg"],["Monster Hunter: World Iceborne",58.59,"rpg"],["Tales of Arise",58.58,"rpg"],["NieR: Automata",52.61,"rpg"],["Kingdom Hearts III",49.76,"rpg"],["Mass Effect Legendary Edition",85.1,"rpg"],["Scarlet Nexus",26.16,"rpg"],
+["Call of Duty: Black Ops Cold War",166.6,"shoot"],["Call of Duty: Modern Warfare",145.5,"shoot"],["Destiny 2",138.7,"shoot"],["Borderlands 3",126.1,"shoot"],["Star Wars Battlefront II",115.8,"shoot"],["Battlefield V",107.09,"shoot"],["DOOM Eternal",101.6,"shoot"],["Far Cry 6",103.7,"shoot"],["Metro Exodus",77.31,"shoot"],["Wolfenstein II: The New Colossus",69.5,"shoot"],["Rainbow Six Siege",68.28,"shoot"],["Titanfall 2",55.21,"shoot"],["Outriders",46.17,"shoot"],["Atomic Heart",37.63,"shoot"],["Crysis 2 Remastered",22.23,"shoot"],["Crysis 3 Remastered",18.2,"shoot"],["Crysis Remastered",14.44,"shoot"],["Star Wars Squadrons",20,"shoot"],
+["Resident Evil Requiem",72.88,"horror"],["Resident Evil 4 Remake",67,"horror"],["Resident Evil Village",27.4,"horror"],
+["NBA 2K25",120,"sport"],["MLB The Show",59.19,"sport"],["FIFA 21",56.14,"sport"],["DiRT 5",52.74,"sport"],["Mortal Kombat 11",84.21,"fight"],
+["Sonic Frontiers",36.17,"fam"],["Crash Bandicoot 4",21,"fam"],["Astro's Playroom",11,"fam"],["Fall Guys",8,"fam"],["Overcooked! All You Can Eat",8,"fam"],["Minecraft",3,"fam"],["Subnautica",3.76,"fam"],["Stardew Valley",0.2,"fam"],
+["Black Myth: Wukong",104,"act"],["Ghost of Yōtei",85.1,"act"],["Death Stranding 2: On the Beach",91.5,"act"],["Stellar Blade",35,"act","a"],["Indiana Jones and the Great Circle",125,"act"],["Ghostwire: Tokyo",19.5,"act","a"],["Sifu",7.2,"act"],["Judgment",27.9,"act"],["Shadow of the Tomb Raider",25.8,"act"],["Ninja Gaiden 4",23.6,"act","a"],["Armored Core VI: Fires of Rubicon",43.3,"act"],["Star Wars Jedi: Survivor",147.6,"act"],
+["Final Fantasy VII Rebirth",145.3,"rpg"],["Final Fantasy XVI",94.9,"rpg"],["Elden Ring Nightreign",21.2,"rpg"],["Monster Hunter Wilds",52.8,"rpg"],["Dragon's Dogma 2",64.4,"rpg"],["Dragon Age: The Veilguard",86.9,"rpg"],["Kingdom Come: Deliverance II",84,"rpg"],["Like a Dragon: Infinite Wealth",55.3,"rpg"],["Persona 3 Reload",25.5,"rpg"],["Lies of P",34.7,"rpg"],["Clair Obscur: Expedition 33",41.6,"rpg","a"],["Genshin Impact",23,"rpg","a"],
+["Call of Duty: Black Ops 7",132,"shoot","a"],["Battlefield 6",67,"shoot"],["Battlefield 2042",42.7,"shoot"],["DOOM: The Dark Ages",85,"shoot","a"],["Helldivers 2",25,"shoot","a"],["Apex Legends",79.1,"shoot"],["Fortnite",65.5,"shoot"],["Valorant",26.5,"shoot","a"],["Warhammer 40,000: Space Marine 2",54.4,"shoot"],
+["Silent Hill 2",50.5,"horror"],["Alan Wake 2",79.8,"horror"],["Dead Space (2023)",31.1,"horror"],["Resident Evil 2 Remake",21.8,"horror"],["Resident Evil 3 Remake",20.5,"horror"],["The Callisto Protocol",42.8,"horror"],["Little Nightmares III",16,"horror"],
+["Gran Turismo 7",110,"sport"],["EA Sports FC 26",57.3,"sport"],["EA Sports FC 25",48.1,"sport","a"],["NBA 2K26",102.7,"sport"],["WWE 2K25",110.5,"sport"],["F1 25",77.1,"sport"],["Need for Speed Unbound",29.4,"sport"],["Assetto Corsa Competizione",12.9,"sport","a"],
+["Mortal Kombat 1",114.4,"fight"],["Tekken 8",80,"fight","a"],["Street Fighter 6",54,"fight","a"],["UFC 5",45.2,"fight"],
+["Split Fiction",79,"fam"],["It Takes Two",43.7,"fam"],["LEGO Star Wars: The Skywalker Saga",38.2,"fam"],["Hollow Knight: Silksong",2.5,"fam"]];
+var GN={act:"اکشن و ماجراجویی",rpg:"نقش‌آفرینی",shoot:"تیراندازی",horror:"ترسناک",sport:"ورزشی و مسابقه",fight:"مبارزه‌ای",fam:"خانوادگی و ایندی"};
+var HUE={act:220,rpg:275,shoot:28,horror:350,sport:158,fight:326,fam:190};
+var ICO={act:'<path d="M20 5 36 34H4z"/>',rpg:'<circle cx="20" cy="20" r="15"/>',shoot:'<path d="M7 7 33 33M33 7 7 33"/>',horror:'<rect x="6" y="6" width="28" height="28"/>',sport:'<path d="M20 3 37 20 20 37 3 20z"/>',fight:'<path d="M12 4h16l9 16-9 16H12L3 20z"/>',fam:'<path d="M20 4l5 11 12 1-9 8 3 12-11-6-11 6 3-12-9-8 12-1z"/>'};
+var games=G.map(function(g,i){var h=0;for(var k=0;k<g[0].length;k++)h=(h*31+g[0].charCodeAt(k))%40;return{name:g[0],gb:g[1],genre:g[2],flag:g[3]||"",hue:HUE[g[2]]+h-20};});
+var KEY="ps5-picks-v1",sel={},st={q:"",genre:"all",sort:"big",view:"all"};
+try{JSON.parse(localStorage.getItem(KEY)||"[]").forEach(function(n){sel[n]=1;});}catch(e){}
+var $=function(i){return document.getElementById(i);};
+var fmt=function(n){return String(Math.round(n*10)/10);};
+var esc=function(s){return s.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;");};
+var used=function(){return games.reduce(function(a,g){return a+(sel[g.name]?g.gb:0);},0);};
+var wasOver=false;
+function gauge(){
+  var u=used(),r=CAP-u,p=Math.min(1,u/CAP),n=Object.keys(sel).length;
+  $("used").textContent=fmt(u);$("rem").textContent=fmt(Math.max(r,0));
+  $("pc").textContent=Math.round(u/CAP*100)+"%";$("cnt").textContent=n;$("hN").textContent=n;
+  var f=$("fill");f.style.strokeDashoffset=213.6*(1-p);f.setAttribute("class","fg"+(u>CAP?" bad":u/CAP>.85?" warn":""));
+  var by={};games.forEach(function(g){if(sel[g.name])by[g.genre]=(by[g.genre]||0)+g.gb;});
+  $("stack").innerHTML=Object.keys(by).map(function(k){return'<i style="width:'+Math.min(100,by[k]/CAP*100)+'%;background:var(--'+k+')"></i>';}).join("");
+  var m=$("msg");
+  if(u>CAP){m.className="msg bad";m.textContent="از ظرفیت "+fmt(u-CAP)+" گیگ بیشتر شده؛ یک بازی را بردار.";if(!wasOver){var b=$("band");b.classList.remove("shake");void b.offsetWidth;b.classList.add("shake");}}
+  else if(u/CAP>.85){m.className="msg warn";m.textContent="تقریبا پر است؛ فقط "+fmt(r)+" گیگ جا داری.";}
+  else if(!u){m.className="msg";m.textContent="هنوز بازی‌ای انتخاب نکرده‌ای.";}
+  else{m.className="msg";m.textContent="جای کافی داری.";}
+  wasOver=u>CAP;
+}
+function chips(){
+  var h='<button class="chip" data-g="all" aria-pressed="'+(st.genre==="all")+'">همه</button>';
+  Object.keys(GN).forEach(function(k){h+='<button class="chip" style="--c:var(--'+k+')" data-g="'+k+'" aria-pressed="'+(st.genre===k)+'"><i></i>'+GN[k]+'</button>';});
+  $("chips").innerHTML=h;
+}
+function list(fid){
+  var rem=CAP-used();
+  var arr=games.filter(function(g){
+    if(st.view==="sel")return!!sel[g.name];
+    if(st.genre!=="all"&&g.genre!==st.genre)return false;
+    return!st.q||g.name.toLowerCase().indexOf(st.q.toLowerCase())>=0;});
+  arr.sort(function(a,b){return st.sort==="name"?a.name.localeCompare(b.name):st.sort==="small"?a.gb-b.gb:b.gb-a.gb;});
+  $("count").textContent=arr.length+" بازی";
+  $("list").innerHTML=arr.length?arr.map(function(g,i){
+    var on=!!sel[g.name],nf=!on&&g.gb>rem,t="";
+    if(g.flag==="a")t+='<span class="tag">تقریبی</span>';
+    if(g.flag==="e")t+='<span class="tag">تخمینی، هنوز منتشر نشده</span>';
+    if(nf)t+='<span class="tag no">جا نمی‌شود</span>';
+    var pc=g.gb/CAP*100;
+    return'<li><label class="row'+(nf?" nofit":"")+'" style="--c:var(--'+g.genre+')"><input type="checkbox" id="g'+games.indexOf(g)+'" data-n="'+esc(g.name)+'"'+(on?" checked":"")+'>'+
+    '<span class="cover" style="--h:'+g.hue+'" aria-hidden="true"><svg viewBox="0 0 40 40">'+ICO[g.genre]+'</svg><span>'+esc(g.name.replace(/^(The|Marvel's)\s+/,"").slice(0,2))+'</span><span class="ck"></span></span>'+
+    '<span class="name"><span class="t">'+esc(g.name)+'</span><span class="s"><span class="gen">'+GN[g.genre]+'</span>'+t+'</span></span>'+
+    '<span class="sz"><b>'+fmt(g.gb)+'</b><span>GB · '+(pc<1?"<1":Math.round(pc))+'%</span><span class="share"><i style="width:'+Math.min(100,pc)+'%"></i></span></span></label></li>';
+  }).join(""):'<li class="empty">'+(st.view==="sel"?"هنوز چیزی انتخاب نکرده‌ای. به تب «همه بازی‌ها» برو.":"بازی‌ای با این نام پیدا نشد.")+'</li>';
+  $("actions").hidden=!(st.view==="sel"&&arr.length);
+  if(fid){var e=$(fid);if(e)e.focus({preventScroll:true});}
+}
+function setView(v){st.view=v;$("tab-all").setAttribute("aria-selected",v==="all");$("tab-sel").setAttribute("aria-selected",v==="sel");$("chips").parentNode.style.display="";
+  $("q").style.display=$("chips").style.display=v==="sel"?"none":"";list();}
+$("list").addEventListener("change",function(e){var n=e.target.getAttribute("data-n");if(!n)return;
+  if(e.target.checked)sel[n]=1;else delete sel[n];
+  try{localStorage.setItem(KEY,JSON.stringify(Object.keys(sel)));}catch(x){}
+  gauge();list(e.target.id);queueSave();});
+$("chips").addEventListener("click",function(e){var b=e.target.closest(".chip");if(!b)return;st.genre=b.getAttribute("data-g");chips();list();});
+$("q").addEventListener("input",function(e){st.q=e.target.value.trim();list();});
+$("sort").addEventListener("change",function(e){st.sort=e.target.value;list();});
+$("tab-all").addEventListener("click",function(){setView("all");});
+$("tab-sel").addEventListener("click",function(){setView("sel");});
+$("clear").addEventListener("click",function(){sel={};try{localStorage.removeItem(KEY);}catch(x){}gauge();list();queueSave();});
+$("copy").addEventListener("click",function(){
+  var txt=games.filter(function(g){return sel[g.name];}).map(function(g){return g.name+" — "+fmt(g.gb)+" GB";}).join("\n")+"\n\nمجموع: "+fmt(used())+" / "+CAP+" GB";
+  var b=$("copy");function ok(s){b.textContent=s;setTimeout(function(){b.textContent="کپی لیست";},1600);}
+  try{navigator.clipboard.writeText(txt).then(function(){ok("کپی شد");},function(){ok("کپی نشد");});}catch(x){ok("کپی نشد");}
+});
+$("hT").textContent=games.length;
+chips();gauge();list();
+/* ---- تنظیمات Supabase: این دو مقدار را بعد از ساخت پروژه جایگذاری کن ---- */
+var SB_URL="https://lcansnivswhxxdjkljmw.supabase.co",SB_KEY="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImxjYW5zbml2c3doeHhkamtsam13Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTIyODQyMDIsImV4cCI6MjEwNzg2MDIwMn0.CKqvuRsKE4cl6nltU_8ZWm5oU6urj-CcetmNtNTTzK4";
+var ON=SB_URL.indexOf("http")===0&&SB_KEY.length>20;
+var NKEY="ps5-name-v1",PKEY="ps5-pid-v1",me={name:"",pid:""},saveT=null,admTimer=null,admCode="";
+try{me.name=localStorage.getItem(NKEY)||"";me.pid=localStorage.getItem(PKEY)||"";}catch(e){}
+if(!me.pid){me.pid=(window.crypto&&crypto.randomUUID)?crypto.randomUUID():"p"+Date.now()+Math.random().toString(36).slice(2);try{localStorage.setItem(PKEY,me.pid);}catch(e){}}
+function rpc(fn,args){
+  return fetch(SB_URL+"/rest/v1/rpc/"+fn,{method:"POST",headers:(function(){var h={"apikey":SB_KEY,"Content-Type":"application/json"};if(SB_KEY.indexOf("sb_")!==0)h["Authorization"]="Bearer "+SB_KEY;return h;})(),body:JSON.stringify(args)})
+   .then(function(r){if(!r.ok)throw new Error(r.status);return r.text();})
+   .then(function(t){return t?JSON.parse(t):null;});
+}
+function cloud(t){$("cloud").textContent=t;}
+function hi(){$("nameBtn").textContent=me.name?"👤 "+me.name:"ورود";}
+function ask(){$("nameModal").hidden=false;$("nameIn").value=me.name;$("nameIn").focus();}
+function setName(){var v=$("nameIn").value.trim().slice(0,30);if(!v){$("nameIn").focus();return;}me.name=v;try{localStorage.setItem(NKEY,v);}catch(e){}$("nameModal").hidden=true;hi();saveNow();}
+function saveNow(){
+  if(!ON||!me.name)return;
+  rpc("save_player",{p_id:me.pid,p_name:me.name,p_games:Object.keys(sel),p_total:Math.round(used()*10)/10})
+   .then(function(){cloud("ذخیره شد ✓");},function(){cloud("ذخیره نشد؛ اتصال را چک کن");});
+}
+function queueSave(){clearTimeout(saveT);saveT=setTimeout(saveNow,700);}
+$("nameOk").addEventListener("click",setName);
+$("nameIn").addEventListener("keydown",function(e){if(e.key==="Enter")setName();});
+$("nameBtn").addEventListener("click",ask);
+hi();if(!me.name)ask();
+/* ---- ادمین ---- */
+function renderAdm(ps){
+  $("admSum").textContent=ps.length+" نفر وارد شده‌اند";
+  $("admList").innerHTML=ps.length?ps.map(function(p){
+    var gs=(p.games||[]).map(function(n){var g=games.filter(function(x){return x.name===n;})[0];return'<li><span>'+esc(String(n))+'</span><span>'+(g?fmt(g.gb)+' GB':'')+'</span></li>';}).join("");
+    var when=p.updated_at?new Date(p.updated_at).toLocaleString("fa-IR"):"";
+    return'<details class="pl"><summary><span class="pn">'+esc(String(p.name||"بدون نام"))+'</span><span class="pm">'+(p.games||[]).length+' games · '+fmt(Number(p.total)||0)+' GB</span></summary>'+(gs?'<ul>'+gs+'</ul>':'<ul><li><span>هنوز بازی‌ای انتخاب نکرده</span></li></ul>')+'<div class="pm" style="padding:0 12px 10px;direction:rtl;text-align:right">آخرین تغییر: '+esc(when)+'</div></details>';
+  }).join(""):'<div class="empty" style="margin-top:8px">هنوز کسی ذخیره نکرده است.</div>';
+}
+function loadAdm(code,first){
+  rpc("admin_list",{p_code:code}).then(function(rows){
+    admCode=code;$("admLock").hidden=true;$("admBody").hidden=false;renderAdm(rows||[]);
+    if(!admTimer)admTimer=setInterval(function(){loadAdm(admCode,false);},15000);
+  },function(){if(first)$("admErr").textContent="کد اشتباه است یا اتصال برقرار نیست.";});
+}
+$("admOpen").addEventListener("click",function(){$("admModal").hidden=false;$("admCode").value="";$("admErr").textContent=ON?"":"هنوز Supabase تنظیم نشده است.";if(!$("admLock").hidden)$("admCode").focus();});
+$("admGo").addEventListener("click",function(){var c=$("admCode").value.trim();if(!c||!ON)return;loadAdm(c,true);});
+$("admCode").addEventListener("keydown",function(e){if(e.key==="Enter")$("admGo").click();});
+$("admClose").addEventListener("click",function(){$("admModal").hidden=true;$("admBody").hidden=true;$("admLock").hidden=false;clearInterval(admTimer);admTimer=null;admCode="";});
+/* ---- بازیابی انتخاب‌های قبلی همین کاربر ---- */
+if(!ON){cloud("فقط روی این دستگاه ذخیره می‌شود");}
+else{rpc("get_player",{p_id:me.pid}).then(function(p){
+  if(p){
+    if(!me.name&&p.name){me.name=String(p.name);try{localStorage.setItem(NKEY,me.name);}catch(e){}$("nameModal").hidden=true;hi();}
+    if(Array.isArray(p.games)){sel={};p.games.forEach(function(n){sel[n]=1;});try{localStorage.setItem(KEY,JSON.stringify(Object.keys(sel)));}catch(e){}gauge();list();}
+  }else if(me.name){saveNow();}
+  cloud("متصل ✓");
+},function(){cloud("اتصال آنلاین برقرار نشد");});}
+
+})();
+</script>
+</body>
+</html>
